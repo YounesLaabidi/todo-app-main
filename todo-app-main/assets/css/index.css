@@ -1,0 +1,360 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body.active {
+  background: hsl(235, 21%, 11%);
+}
+body.active .app .app__create-task {
+  background: hsl(235, 24%, 19%);
+}
+body.active .app .app__task-title {
+  color: hsl(234, 39%, 85%);
+  background: transparent;
+}
+body.active .app .app__task-title::-moz-placeholder {
+  color: hsl(234, 11%, 52%);
+}
+body.active .app .app__task-title::placeholder {
+  color: hsl(234, 11%, 52%);
+}
+body.active .app .app_task-item {
+  background: hsl(235, 24%, 19%);
+}
+body.active .app .app__check-btn.active {
+  background: linear-gradient(136.55deg, #57ddff 8.75%, #c058f3 89.25%);
+}
+body.active .app .app__check-img {
+  opacity: 0;
+}
+body.active .app .app__check-img.active {
+  opacity: 1;
+}
+body.active .app .app__nav {
+  background: hsl(235, 24%, 19%);
+}
+body.active .app .app__clear-btn {
+  background-color: transparent;
+}
+body.active .app .app__clear-btn:hover {
+  color: hsl(235, 19%, 35%);
+}
+body.active .app .app__indicators {
+  background: hsl(235, 24%, 19%);
+}
+body.active .app .app__indicators > *:hover {
+  color: hsl(236, 33%, 92%);
+}
+body.active .app .app__indicator {
+  color: hsl(234, 11%, 52%);
+}
+body.active .app .app__indicator--all {
+  color: hsl(220, 98%, 61%);
+}
+body.active .app .app__notice {
+  color: hsl(233, 14%, 35%);
+}
+
+body {
+  padding-top: 49px;
+  background: hsl(0, 0%, 98%);
+}
+@media (min-width: 48rem) {
+  body {
+    padding-top: 78px;
+  }
+}
+
+.background {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+@media (min-width: 48rem) {
+  .background {
+    height: 300px;
+  }
+}
+
+.app {
+  width: min(100% - 50px, 540px);
+  margin: 0 auto;
+  position: relative;
+}
+
+.app__title {
+  font-size: 25.9465px;
+  font-weight: 700;
+  color: hsl(0, 0%, 98%);
+  line-height: unset;
+  letter-spacing: 0.4em;
+  margin-bottom: 34px;
+}
+@media (min-width: 48rem) {
+  .app__title {
+    font-size: 38.6838px;
+    margin-bottom: 40px;
+  }
+}
+
+.app__theme-toggle {
+  --square: 20px;
+  width: var(--square);
+  height: var(--square);
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+@media (min-width: 48rem) {
+  .app__theme-toggle {
+    --square: 26px;
+  }
+}
+
+.app__create-task {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+  border-radius: 7px;
+  margin-bottom: 16px;
+  background-color: #fff;
+}
+@media (min-width: 48rem) {
+  .app__create-task {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    -moz-column-gap: 12px;
+         column-gap: 12px;
+    border-radius: 7px;
+    margin-bottom: 23px;
+    background-color: #fff;
+    padding: 21px 25px;
+  }
+}
+
+.app__add-btn, .app__check-btn {
+  --square: 20px;
+  width: var(--square);
+  height: var(--square);
+  border: 0.869565px solid hsl(233, 11%, 84%);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
+@media (min-width: 48rem) {
+  .app__add-btn, .app__check-btn {
+    --square: 23px;
+  }
+}
+
+.app__task-title {
+  font-size: 11.6466px;
+  font-weight: 700;
+  color: hsl(235, 19%, 35%);
+  line-height: unset;
+  letter-spacing: -0.025em;
+}
+
+.app__task-title--create {
+  width: 100%;
+}
+
+.app__tasks-list {
+  border-radius: 7px;
+}
+
+.app_task-item:first-child {
+  border-radius: 7px 7px 0 0;
+}
+
+.app_task-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+  border-radius: 0;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 48rem) {
+  .app_task-item {
+    font-size: 17.3003px;
+    padding: 21px 25px;
+  }
+}
+.app_task-item > * {
+  cursor: pointer;
+}
+.app_task-item:not(:last-child) {
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+.app_task-item--complete > .app__check-btn {
+  background: linear-gradient(136.55deg, #57ddff 8.75%, #c058f3 89.25%);
+  border: none;
+}
+.app_task-item--complete > .app__task-title {
+  position: relative;
+  color: hsl(233, 11%, 84%);
+}
+.app_task-item--complete > .app__task-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: hsl(233, 11%, 84%);
+  height: 1px;
+  width: 100%;
+}
+
+.app__check-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.app__check-btn.active {
+  background: linear-gradient(136.55deg, #57ddff 8.75%, #c058f3 89.25%);
+}
+
+.app__task-title--item {
+  font-size: 11.1544px;
+  font-weight: 400;
+  color: hsl(235, 19%, 35%);
+  line-height: 11px;
+  letter-spacing: 0.02em;
+}
+
+.app__remove-btn {
+  background-color: transparent;
+  --square: 11px;
+  width: var(--square);
+  height: var(--square);
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  align-items: center;
+}
+@media (min-width: 48rem) {
+  .app__remove-btn {
+    --square: 18px;
+  }
+}
+.app__remove-btn img {
+  width: 100%;
+  height: 100%;
+}
+
+.app__nav {
+  background-color: #fff;
+  border-radius: 0px 0px 7px 7px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.05);
+}
+@media (min-width: 48rem) {
+  .app__nav {
+    padding: 20px 24px;
+  }
+}
+
+.app__unchecked-item, .app__clear-btn {
+  font-size: 11.1085px;
+  font-weight: 400;
+  color: hsl(236, 9%, 61%);
+  line-height: 11px;
+  letter-spacing: 0.015em;
+  cursor: default;
+}
+@media (min-width: 48rem) {
+  .app__unchecked-item, .app__clear-btn {
+    font-size: 13.0238px;
+  }
+}
+
+.app__clear-btn {
+  background-color: transparent;
+  cursor: pointer;
+}
+.app__clear-btn:hover {
+  color: hsl(235, 19%, 35%);
+}
+
+.app__indicators {
+  position: absolute;
+  bottom: -67px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  padding: 17px;
+  width: 100%;
+  -moz-column-gap: 18px;
+       column-gap: 18px;
+  border-radius: 7px;
+}
+@media (min-width: 48rem) {
+  .app__indicators {
+    position: static;
+    transform: translateX(0);
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+.app__indicators > * {
+  cursor: pointer;
+}
+.app__indicators > *:hover {
+  color: hsl(235, 19%, 35%);
+}
+
+.app__indicator {
+  font-size: 14.556px;
+  font-weight: 700;
+  color: hsl(236, 9%, 61%);
+  line-height: 15px;
+  letter-spacing: -0.05em;
+}
+
+.app__indicator--all {
+  color: hsl(220, 98%, 61%);
+}
+
+.app__notice {
+  position: absolute;
+  bottom: 0;
+  bottom: -60px;
+  font-size: 13.1632px;
+  font-weight: 700;
+  color: hsl(235, 19%, 35%);
+  line-height: 13px;
+  letter-spacing: 0.01em;
+  cursor: default;
+}
+@media (min-width: 48rem) {
+  .app__notice {
+    bottom: -66px;
+  }
+}/*# sourceMappingURL=index.css.map */

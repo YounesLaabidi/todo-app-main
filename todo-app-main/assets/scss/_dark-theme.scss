@@ -1,0 +1,58 @@
+@use "color" as *;
+body.active {
+  background: color($DarkTheme, VeryDarkBlue);
+  .app {
+    .app__create-task {
+      background: color($DarkTheme, VeryDarkDesaturatedBlue);
+    }
+    .app__task-title {
+      color: color($DarkTheme, LightGrayishBlue);
+      background: transparent;
+      &::placeholder {
+        color: color($DarkTheme, DarkGrayishBlue);
+      }
+    }
+    .app_task-item {
+      background: color($DarkTheme, VeryDarkDesaturatedBlue);
+    }
+
+    .app__check-btn {
+      &.active {
+        background: color($primary, CheckBackground);
+      }
+    }
+    .app__check-img {
+      opacity: 0;
+      &.active {
+        opacity: 1;
+      }
+    }
+    .app__nav {
+      background: color($DarkTheme, VeryDarkDesaturatedBlue);
+    }
+    .app__unchecked-item {
+      $color: color($DarkTheme, LightGrayishBlue);
+    }
+    .app__clear-btn {
+      background-color: transparent;
+      &:hover {
+        color: color($lightTheme, VeryDarkGrayishBlue);
+      }
+    }
+    .app__indicators {
+      background: color($DarkTheme, VeryDarkDesaturatedBlue);
+      & > *:hover {
+        color: color($DarkTheme, LightGrayishBlueHover);
+      }
+    }
+    .app__indicator {
+      color: color($DarkTheme, DarkGrayishBlue);
+    }
+    .app__indicator--all {
+      color: color($primary, BrightBlue);
+    }
+    .app__notice {
+      color: color($DarkTheme, VeryDarkGrayishBlue);
+    }
+  }
+}

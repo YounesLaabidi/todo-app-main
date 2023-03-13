@@ -1,0 +1,224 @@
+@forward "default";
+@use "mq" as *;
+@use "color" as *;
+@use "font" as *;
+@use "component" as *;
+@forward "dark-theme";
+body {
+  padding-top: 49px;
+  background: color($lightTheme, VeryLightGray);
+  @include mq {
+    padding-top: 78px;
+  }
+}
+.background {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  @include mq {
+    height: 300px;
+  }
+}
+.app {
+  width: min(100% - 50px, 540px);
+  margin: 0 auto;
+  position: relative;
+}
+.app__title {
+  $color: color($lightTheme, VeryLightGray);
+  @include font($s: 25.9465px, $w: 700, $ls: 0.4em, $c: $color);
+  margin-bottom: 34px;
+  @include mq {
+    font-size: 38.6838px;
+    margin-bottom: 40px;
+  }
+}
+.app__theme-toggle {
+  --square: 20px;
+  width: var(--square);
+  height: var(--square);
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  @include mq {
+    --square: 26px;
+  }
+}
+.app__create-task {
+  @include taskComponent($mb: 16px, $br: 7px);
+  @include mq {
+    @include taskComponent($mb: 23px, $br: 7px);
+    padding: 21px 25px;
+  }
+}
+.app__add-btn {
+  $b: color($lightTheme, LightGrayishBlue);
+  --square: 20px;
+  width: var(--square);
+  height: var(--square);
+  border: 0.869565px solid $b;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  @include mq {
+    --square: 23px;
+  }
+}
+.app__task-title {
+  $c: color($lightTheme, VeryDarkGrayishBlue);
+  @include font($s: 11.6466px, $w: 700, $ls: -0.025em, $c: $c);
+}
+.app__task-title--create {
+  width: 100%;
+}
+.app__tasks-list {
+  border-radius: 7px;
+}
+.app_task-item:first-child {
+  border-radius: 7px 7px 0 0;
+}
+.app_task-item {
+  $c: #fff;
+  @include taskComponent($mb: 0, $br: 0, $bc: $c);
+  @include mq {
+    font-size: 17.3003px;
+    padding: 21px 25px;
+  }
+  & > * {
+    cursor: pointer;
+  }
+  &:not(:last-child) {
+    $color: color($lightTheme, LightGrayishBlue);
+    border-bottom: 1px solid $color;
+  }
+  &--complete {
+    > .app__check-btn {
+      background: color($primary, CheckBackground);
+      border: none;
+    }
+    > .app__task-title {
+      position: relative;
+      $color: color($lightTheme, LightGrayishBlue);
+      color: $color;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: color($lightTheme, LightGrayishBlue);
+        height: 1px;
+        width: 100%;
+      }
+    }
+  }
+}
+.app__check-btn {
+  @extend .app__add-btn;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.active {
+    background: color($primary, CheckBackground);
+  }
+}
+.app__check-img {
+  // display: none;
+}
+.app__task-title--item {
+  $color: color($lightTheme, VeryDarkGrayishBlue);
+  @include font($s: 11.1544px, $w: 400, $lh: 11px, $ls: 0.02em, $c: $color);
+}
+.app__remove-btn {
+  background-color: transparent;
+  --square: 11px;
+  width: var(--square);
+  height: var(--square);
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  align-items: center;
+  @include mq {
+    --square: 18px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.app__nav {
+  background-color: $white;
+  border-radius: 0px 0px 7px 7px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: 0px 7px 9px rgb(0 0 0 / 5%);
+  @include mq {
+    padding: 20px 24px;
+  }
+}
+.app__unchecked-item {
+  $color: color($lightTheme, DarkGrayishBlue);
+  @include font($s: 11.1085px, $w: 400, $lh: 11px, $ls: 0.015em, $c: $color);
+  cursor: default;
+  @include mq {
+    font-size: 13.0238px;
+  }
+}
+.app__clear-btn {
+  background-color: transparent;
+  @extend .app__unchecked-item;
+  cursor: pointer;
+  &:hover {
+    color: color($lightTheme, VeryDarkGrayishBlue);
+  }
+}
+.app__indicators {
+  position: absolute;
+  bottom: -67px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  background-color: $white;
+  padding: 17px;
+  width: 100%;
+  column-gap: 18px;
+  border-radius: 7px;
+  @include mq {
+    position: static;
+    transform: translateX(0);
+    width: fit-content;
+  }
+  & > * {
+    cursor: pointer;
+  }
+  & > *:hover {
+    color: color($lightTheme, VeryDarkGrayishBlue);
+  }
+}
+.app__indicator {
+  $color: color($lightTheme, DarkGrayishBlue);
+  @include font($s: 14.556px, $w: 700, $c: $color, $lh: 15px, $ls: -0.05em);
+}
+.app__indicator--all {
+  color: color($primary, BrightBlue);
+}
+.app__notice {
+  position: absolute;
+  bottom: 0;
+  bottom: -60px;
+  $color: color($lightTheme, VeryDarkGrayishBlue);
+  @include font($s: 13.1632px, $w: 700, $c: $color, $lh: 13px, $ls: 0.01em);
+  cursor: default;
+  @include mq {
+    bottom: -66px;
+  }
+}

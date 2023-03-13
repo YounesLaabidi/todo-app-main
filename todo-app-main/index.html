@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <!--  -->
+    <!-- JAVASCRIPT -->
+    <script src="assets/javascript/main.js" defer></script>
+    <script src="assets/javascript/toggleTheme.js" defer></script>
+    <!--  -->
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FAVICON -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <!--  -->
+    <!-- TITLE -->
+    <title>Frontend Mentor | Todo app</title>
+    <!--  -->
+  </head>
+  <body body>
+    <picture>
+      <source
+        media="(min-width: 48rem )"
+        srcset="./assets/images/bg-desktop-light.jpg"
+      />
+      <img
+        class="background"
+        src="./assets/images/bg-mobile-light.jpg"
+        alt="bg-mobile-light"
+      />
+    </picture>
+    <main class="app">
+      <h1 class="app__title">TODO</h1>
+      <img
+        class="app__theme-toggle"
+        src="./assets/images/icon-moon.svg"
+        alt="icon-moon"
+      />
+      <div class="app__create-task">
+        <button class="app__add-btn"></button>
+        <input
+          class="app__task-title app__task-title--create"
+          placeholder="Create a new todo..."
+        />
+      </div>
+      <ul class="app__tasks-list"></ul>
+      <div class="app__nav">
+        <span class="app__unchecked-item">0 items left</span>
+        <ul class="app__indicators">
+          <li class="app__indicator app__indicator--all">All</li>
+          <li class="app__indicator app__indicator--active">Active</li>
+          <li class="app__indicator app__indicator--completed">Completed</li>
+          <p class="app__notice">Drag and drop to reorder list</p>
+        </ul>
+        <button class="app__clear-btn">Clear Completed</button>
+      </div>
+    </main>
+  </body>
+</html>
